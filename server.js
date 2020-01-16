@@ -28,7 +28,8 @@ app.get("/", (req, res) => res.json(database.users));
 app.post("/signin", signin.handleSignIn(bcrypt, db));
 app.post("/register", register.handleRegister(bcrypt, db));
 app.get("/profile/:id", profile.handleGetProfile(db));
-app.put("/image", image.addUpload (db));
+app.put("/image", image.addUpload(db));
+app.post("/imageUrl",image.handleApiCall);
 
 app.listen(3000, () => {
   console.log("running on port 3000");
